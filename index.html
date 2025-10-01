@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de ayuda PLATEA</title>
+    <style>
+        :root {
+            --color-verde: #2E8B57;
+            --color-azul: #4682B4;
+            --color-naranja: #FF8C42;
+            --color-bordes: #e0e0e0;
+            --color-fondo: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--color-fondo);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--color-bordes);
+            padding-bottom: 20px;
+        }
+        
+        header h1 {
+            color: #333;
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+        
+        header p {
+            color: #666;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--color-bordes);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            color: var(--color-azul);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        a {
+            color: var(--color-azul);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--color-naranja);
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+        
+        .btn:hover {
+            background-color: #e67e3a;
+            text-decoration: none;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        h3 {
+            color: var(--color-verde);
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el acordeón */
+        .accordion-header {
+            background-color: #f8f8f8;
+            border: 1px solid var(--color-bordes);
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-header:hover {
+            background-color: #f0f0f0;
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            display: inline;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        .accordion-icon {
+            color: var(--color-verde);
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .active .accordion-content {
+            display: block;
+        }
+
+        /* Nuevos estilos para subsecciones */
+        .subsection {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 3px solid var(--color-verde);
+            border-radius: 3px;
+        }
+
+        .subsection-title {
+            color: var(--color-verde);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .material-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .material-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .material-list li:before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manual de ayuda Platea</h1>
+            <p>Guía de ayuda del gestor de expedientes Platea en el procedimiento de acreditación de 
+                competencias en Canarias.
+            </p>
+        </header>
+        
+        <section class="section">
+            <h2 class="section-title">Objetivo</h2>
+            <p>El objetivo de esta sencilla web es poner a disposición de las personas que realizan labores asesoramiento y evaluación vídeos de ayuda y otra documentación para trabajar con el gestor de expedientes PLATEA.
+                </p>
+            <p>La información que se ofrece en está página tiene carácter meramente informativo, no vinculante.</p>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Vídeos de ayuda fase de asesoramiento</h2>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>01 Introducción a Platea</h3>
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subsection">
+                        <div class="subsection-title">🎥01 Introducción a Platea</div>
+                        <div class="video-container">
+                            <iframe src="https://youtu.be/8MrF5du3ILI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">📚 Material complementario</div>
+                        <ul class="material-list">
+                            <li><a href="https://miro.com/app/board/uXjVJC9y678=/?share_link_id=930270184889">Esquema introductorio procedimiento (con el ratón pueden ampliar o reducir)</a></li>
+                            <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-5139">Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional</a></li>
+                            <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-16889">Real Decreto 659/2023, de 18 de julio, por el que se desarrolla la ordenación del Sistema de Formación Profesional.</a> El procedimiento se regula en el título VI (artículos 175 a 188)</li>
+                            <li><a href="https://www.boe.es/eli/es/rd/2025/02/04/69">Real Decreto 69/2025, de 4 de febrero, por el que se desarrollan los elementos integrantes y los instrumentos de gestión del Sistema Nacional de Formación Profesional</a></li>
+                            <li><a href="https://youtu.be/2BP05tlVAvw?si=6ds9oGSB0p6K8wg2">Descripción de Platea Dirección General de Modernización</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>Normativa Canarias procedimiento de acreditación</h3>
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subsection">
+                        <div class="subsection-title">🎥 Vídeo de ayuda 2</div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID_AQUI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">📚 Material complementario</div>
+                        <ul class="material-list">
+                            <li><a href="https://www.gobiernodecanarias.org/boc/2025/041/832.html">Resolución de 17 de febrero de 2025, por la que se establecen las cualificaciones profesionales susceptibles de acreditación en el procedimiento de acreditación de competencias en Canarias en el año 2025</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>Normativa reciente grados A, B y C abril 2025</h3>
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subsection">
+                        <div class="subsection-title">🎥 Vídeo de ayuda 3</div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID_AQUI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">📚 Material complementario</div>
+                        <ul class="material-list">
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-6797">Real Decreto 207/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Administración y Gestión; Agraria; Informática y Comunicaciones; y Madera, Mueble y Corcho.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-7040">Real Decreto 208/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Artes Gráficas; Fabricación Mecánica; Servicios Socioculturales y a la Comunidad; y Vidrio y Cerámica.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-6699">Real Decreto 209/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Imagen Personal; Imagen y Sonido; Instalación y Mantenimiento; y Química.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-7588">Real Decreto 210/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Edificación y Obra Civil; Electricidad y Electrónica; Energía y Agua; e Industrias Extractivas.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-7096">Real Decreto 211/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Industrias Alimentarias; Seguridad y Medio Ambiente; Textil, Confección y Piel; y Transporte y Mantenimiento de Vehículos.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-7193">Real Decreto 212/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para las familias profesionales Actividades Físicas y Deportivas; Comercio y Marketing; y Marítimo-Pesquera.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-7295">Real Decreto 213/2025, de 18 de marzo, por el que se regulan aspectos específicos de los grados A, B y C de Formación Profesional para la familia profesional Hostelería y Turismo.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>Modificaciones reales decretos títulos FP mayo 2024</h3>
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subsection">
+                        <div class="subsection-title">🎥 Vídeo de ayuda 4</div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID_AQUI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">📚 Material complementario</div>
+                        <ul class="material-list">
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-10682">Real Decreto 497/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen, en el ámbito de la Formación Profesional, cursos de especialización de grado medio y superior y se fijan sus enseñanzas mínimas.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-10683">Real Decreto 498/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado básico y se fijan sus enseñanzas mínimas.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-10684">Real Decreto 499/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado medio y se fijan sus enseñanzas mínimas.</a></li>
+                            <li><a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-10685">Real Decreto 500/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado superior y se fijan sus enseñanzas mínimas.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Manuales y webs de ayuda</h2>
+            
+            <h3>Dirección General de Cualificaciones Canarias</h3>
+            <ul>
+                <li><a href="media/GUIA_PERSONA_CANDIDATA.pdf">Guía de la persona candidata</a> (incluye información para realizar la solicitud)</li>
+                <li><a href="https://cualificaciones-profesionales.vercel.app/">Buscador de cualificaciones profesionales Canarias febrero 2025.</a> Permite consultar las cualificaciones profesionales susceptibles
+                de acreditar en Canarias en 2025 (<a href="https://www.gobiernodecanarias.org/boc/2025/041/832.html">Resolución febrero 2025</a>). Además ofrece información sobre los certificados profesionales asociados (grado C) y los ciclos formativos (grado D).</li>
+                <li><a href="https://www.gobiernodecanarias.org/cualificacionesprofesionales/temas/Procedimientos_acreditacion/index.html">Información sobre el procedimiento en la web del Gobierno de Canarias</a></li>
+                <li><a href="https://convalidaciones.vercel.app/">Correspondencia entre ECP/UC y módulos profesionales (versión en pruebas)</a></li>
+                <li><a href="https://buscador-grados-c.vercel.app/">Buscador de titulaciones de grado C con sus correspondientes ECP/UC</a></li>
+            </ul>
+            
+            <h3>Instituto Nacional de las Cualificaciones Profesionales</h3>
+            <ul>
+                <li><a href="https://incual.educacion.gob.es/administracion_cualificaciones">Información sobre las cualificaciones por familia profesional.</a>
+                    En este enlace se puede ver en detalle las unidades de competencia/estándares de competencias profesionales de cada cualificación.</li>
+                <li><a href="https://incual.educacion.gob.es/equivalencias-estandares-de-competencias-profesionales">Equivalencia estándares de competencias profesionales suprimidos y nuevos</a></li>
+                <li><a href="https://incual.educacion.gob.es/manual-procedimiento">Manuales del procedimiento</a></li>
+                <li><a href="https://incual.educacion.gob.es/instrumentos/nivel1/deportivas">Instrumentos de apoyo (guías y cuestionarios de autoevaluación) por familia profesional</a></li>
+            </ul>
+
+            <h3>Todo FP - Ministerio de Educación Formación Profesional y Deportes</h3>
+            <ul>
+                <li><a href="https://todofp.es/acreditacion-de-competencias.html">Información general sobre el procedimiento de acreditación de competencias 
+                    del Ministerio de Educación Formación Profesional y Deportes
+                </a></li>
+                <li><a href="https://todofp.es/acreditacion-de-competencias/informacion-2024-2025.html">Enlaces a las páginas web del 
+                    procedimiento de acreditación en otras comunidades autónomas</a></li>
+                <li><a href="https://todofp.es/catalogos-registros-sistema-fp.html">Catálogos y Registros del Sistema de Formación Profesional.</a> Este apartado recoge entre otros documentos:
+                <ul>
+                    <li><a href="https://todofp.es/catalogos-registros-sistema-fp/buscador-estandares-competencia-profesional.html">El catálogo nacional de estándares de competencia</a></li>
+                    <li><a href="https://todofp.es/dam/jcr:9821bbe2-d840-426f-a801-a173ce391481/catalogo-modular.pdf">El catálogo modular de Formación Profesional</a></li>
+                    <li><a href="https://todofp.es/dam/jcr:2202f07f-e63f-4a52-94ec-b7e65989716f/catalogo-familias.pdf">El catálogo nacional de ofertas de Formación Profesional</a></li>
+                </ul>   
+                </li>
+                <li><a href="https://todofp.es/catalogos-registros-sistema-fp/buscador-estandares-competencia-profesional.html">Buscador de Estándares de Competencia profesional</a></li>
+                <li><a href="https://todofp.es/que-estudiar.html">Información sobre los grados A, B, C, D, E. En este apartado se incluyen buscadores de oferta formativa</a></li>
+                <li><a href="https://todofp.es/como-cuando-y-donde-estudiar/acceso-fp-desde-fp/como-accedo-a-fp.html">Requisitos de acceso a Formación Profesional</a></li>
+                
+            </ul>
+
+            <h3>Dirección General de Formación Profesional y Enseñanzas de Régimen Especial</h3>
+            <ul>
+                <li><a href="https://www.gobiernodecanarias.org/educacion/web/formacion_profesional/ensenanzas/implantacion_curriculos/imolantacion-curriculos-lomloe-looifp/index.html#">
+                    Implantación y distribuciones horarias de ciclos formativos LOMLOE-LOOIFP</a></li>
+                <li><a href="https://www.gobiernodecanarias.org/educacion/centroseducativos/buscador-centros-openlayers/index.html?grupoEnsenanza=FORMACI%C3%93N%20PROFESIONAL">
+                    Buscador de centros de Formación Profesional Canarias.</a></li>
+            </ul>
+
+            <h3>Servicio Canario de Empleo</h3>
+            <ul>
+                <li><a href="https://www.gobiernodecanarias.org/empleo/sce/principal/areas_tematicas/formacion_acreditacion/cursos/buscador_cursos_formacion.html">Buscador de cursos SCE</a></li>
+                <li><a href="https://www.gobiernodecanarias.org/empleo/sce/principal/areas_tematicas/formacion_acreditacion/certificados_profesionalidad/">Información sobre certificados profesionales SCE</a></li>
+            </ul>
+
+            <h3>Otras páginas de ayuda</h3>
+            <ul>
+                <li><a href="https://www1.hezkuntza.net/LHSIFP/">Herramienta de información FP Euskadi</a></li>
+                <li><a href="https://fp.gencat.cat/ca/arees/cataleg-de-qualificacions-professionals/visors/">Visores <em>Agència Pública de Formació i Qualificació Professionals de Catalunya</em></a></li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Material de difusión y promoción</h2>
+            
+            <h3>Trípticos PDF</h3>
+            <ul>
+                <li><a href="media/TRIPTICO_1.pdf">Tríptico 1</a>, <a href="media/TRIPTICO_2.pdf">Tríptico 2</a>, <a href="media/TRIPTICO_3.pdf">Tríptico 3</a>, 
+                    <a href="media/TRIPTICO_4.pdf">Tríptico 4</a>, <a href="media/TRIPTICO_5.pdf">Tríptico 5</a>, <a href="media/TRIPTICO_6.pdf">Tríptico 6</a></li>
+            </ul>
+            
+            <h3>Carteles PDF</h3>
+            <ul>
+                <li><a href="media/CARTEL_1.pdf">Cartel 1</a>, <a href="media/CARTEL_2.pdf">Cartel 2</a>, <a href="media/CARTEL_3.pdf">Cartel 3</a>, <a href="media/CARTEL_4.pdf">Cartel 4</a>, 
+                    <a href="media/CARTEL_5.pdf">Cartel 5</a>, <a href="media/CARTEL_6.pdf">Cartel 6</a></li>
+            </ul>
+
+            <h3>Vídeos (youtube)</h3>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=A2O7Wp7gHAc&list=PLK7E2_aq8YhDbNgbYZ3QfNO-KlRNV9jB7">Lista de reproducción sobre el procedimiento</a></li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Otra información</h2>
+            
+            <h3>Presentaciones, informes y otras guías</h3>
+            <ul>
+                <li><a href="media/PRESENTACION_PROCEDIMIENTO.pdf">Diapositivas presentación jornadas informativas febrero 2025</a></li>
+                <li><a href="media/Ejemplo_01_DEMOSTRADO_INFORME_ORIENTACION.pdf">Ejemplo de informe de orientación si ha demostrado todas las UC/ECP</a></li>
+                <li><a href="media/Ejemplo_02_DEMOSTRADO_parcial_INFORME_ORIENTACION.pdf">Ejemplo de informe de orientación si NO ha demostrado todas las UC/ECP</a></li>
+                <li><a href="media/SOLICITUD_CERTIFICADO_PROFESIONAL_SEDE.pdf">Ayuda para solicitar el certificado profesional por sede electrónica</a></li>
+            </ul>
+            
+            <h3>Enlaces sede electrónica Gobierno de Canarias y oficinas de registro</h3>
+            <ul>
+                <li><a href="https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/6907">Solicitud procedimiento de acreditación de competencias (Procedimiento 6907)</a></li>
+                <li><a href="https://sede.gobiernodecanarias.org/sede/tramites/3643">Solicitud individual de expedición de certificado profesional (Procedimiento 3643)</a></li>
+                <li><a href="https://www.gobiernodecanarias.org/oficinasderegistro/">Oficinas de registro (para presentarlo presencialmente)</a></li>
+            </ul>
+
+            <h3>Dudas frecuentes (FAQ)</h3>
+            <ul>
+                <li>En breve</li>
+            </ul>
+        </section>
+       
+        <section class="section">
+            <h2 class="section-title">Contacto</h2>
+            <p>Las personas participantes en el procedimiento pueden realizar consultas directamente a través de estas dos
+                direcciones de correo electrónico:</P>
+
+            <p>Para cuestiones relacionadas con el procedimiento de acreditación de competencias profesionales (Dirección
+                General de Cualificaciones Profesionales), puede hacer las consultas a través de la dirección de correo electrónico: 
+            <strong>acreditafp.educacion@gobiernodecanarias.org</strong></p>
+            <p>Para cuestiones relacionadas con la emisión de certificados profesionales (Servicio
+                Canario de Empleo), puede hacer las consultas a través de la dirección de correo electrónico: <strong>certificados.sce@gobiernodecanarias.org</strong> (Más información sobre la expedición de certificados profesionales:
+                <a href="https://www.gobiernodecanarias.org/empleo/sce/principal/areas_tematicas/formacion_acreditacion/certificados_profesionalidad/">Certificados Profesionales SCE</a>)</p>
+        </section>
+        
+        <footer>
+            <p>Esta web tiene carácter informativo, no vinculante</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            element.parentElement.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
